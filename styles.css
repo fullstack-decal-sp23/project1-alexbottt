@@ -73,3 +73,46 @@ body {
  .label {
     text-align: center;
 }
+.icons {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 5px;
+}
+
+.icons img {
+    margin-left: 10px; 
+    margin-right: 10px; 
+  }
+
+.icon {
+    padding:1px;
+}
+
+.icon:hover {
+    opacity: .6;
+}
+
+.topbar {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: black;
+  }
+  
+  .topbar a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .topbar a:hover {
+    background-color: #999;
+    color: #fff;
+  }
+  
+  

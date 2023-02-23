@@ -5,21 +5,33 @@
     <meta name="description" content="Alexandria Gooray Personal and Professional Page">
     <title>Alexandria Gooray</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="script" href="my-script.js">
 </head>
 <body>
+    <div class="topbar">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <br>
+    <br>
+
     <div class="title">
         <br>
         <h1>Alexandria Gooray</h1>
         <h6>Data Analyst | Software Engineer | Innovator</h6>
-        <a target = "_blank" href="https://github.com/alexbottt">
-            <img src="../project1-alexbottt/GitHub-Mark.png" alt="github logo" height="50"/>
-        </a>
-        <a href="mailto:alexgooray@berkeley.edu">
-            <img src="../project1-alexbottt/email-icon-sign-symbol-logo-vector.jpg" alt="email icon" height="55"/>
-        </a>
+        <div class="icons">
+            <a target = "_blank" href="https://github.com/alexbottt">
+                <div class=icon><img src="../project1-alexbottt/GitHub-Mark.png" alt="github logo" height="50"/></div>
+            </a>
+            <a href="mailto:alexgooray@berkeley.edu">
+                <div class=icon><img src="../project1-alexbottt/email-13774.png" alt="email icon" height="30"/></div>
+            </a>
+        </div>
     </div>
     <br>
-    <div class="about">
+    <div class="about" id="about">
         <div class="grid-container">
             <div class="top-row">
                 <h2 class="label">About</h2>
@@ -64,7 +76,7 @@
     <br>
 </div>
 
-    <div class="work">
+    <div class="work" id="work">
         <br>
         <br>
         <h2 class="label">Work</h2>
@@ -124,30 +136,49 @@
     <h2>Activities</h2>
 
     -->
-    <div class="contact">
+    <div class="contact" id="contact">
         <div class="grid-container">
             <div class="top-row">
                 <h2 class="label">Contact</h2>
             </div>
-            <div class="left-column" style="text-align: center;">
-                <img src="../project1-alexbottt/email-icon-sign-symbol-logo-vector.jpg" alt="email icon" height="70"/>
+            <div class="left-column" style="text-align: center; line-height: .5;">
+                <img src="../project1-alexbottt/email-13774.png" alt="email icon" height="35"/>
                 <h4>Email Me At</h4>
                 <h5>alexgooray@berkeley.edu</h5>
             </div>
-            <div class="right-column" style="text-align: center;">
+            <div class="right-column" style="text-align: center; line-height: 1.5;">
                 <h4>Let's Connect!</h3>
                     <form>
                         <label for="name">Name:</label>
-                            <input type="text" id="name">
-                            <br>
-                            <label for="email">Email:</label>
-                            <input type="email" id="email">
-                            <br>
-                            <input type="submit">
+                        <input type="text" id="name">
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email">
+                        <br>
+                        <input type="submit">
                     </form>
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
 
+    <script>
+        const topbarLinks = document.querySelectorAll('.topbar a');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const link = document.querySelector(`.topbar a[href="#${entry.target.id}"]`);
+                if (entry.isIntersecting) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+              });
+            });
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+    </script>
 </body>
 </html>
